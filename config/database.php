@@ -72,7 +72,7 @@ return [
             'port' => env('IS_LOCAL') ? env('DB_PORT', '5432') : $DATABASE_URL["port"],
             'database' => env('IS_LOCAL') ? env('DB_DATABASE', 'forge') : ltrim($DATABASE_URL["path"], "/"),
             'username' => env('IS_LOCAL') ? env('DB_USERNAME', 'forge') : $DATABASE_URL["user"],
-            'password' => env('IS_LOCAL'))? env('DB_PASSWORD', '') : $DATABASE_URL["pass"],
+            'password' => env('IS_LOCAL') ? env('DB_PASSWORD', '') : $DATABASE_URL["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
