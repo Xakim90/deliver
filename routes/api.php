@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,11 +23,11 @@ Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 Route::post('me', [PassportAuthController::class, 'me']);
 
-Route::get('books', 'BookController@index');
-Route::get('books/{id}', 'BookController@show');
-Route::post('books','BookController@store');
-Route::put('books/{id}','BookController@update');
-Route::delete('books/{id}', 'BookController@delete');
+Route::get('books', [BookController::class, 'index']);
+Route::get('books/{id}', [BookController::class, 'show']);
+Route::post('books',[BookController::class, 'store']);
+Route::put('books/{id}',[BookController::class, 'update']);
+Route::delete('books/{id}', [BookController::class, 'delete']);
 // Route::get('/users/{id}', function ($id) {
 //     return 'User '.$id;
 // });
