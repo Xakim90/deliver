@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL=parse_url('postgres://soleuqjvoywisx:8a481a7d4f2549ac8c5e95b876bec3a8acee3374d8a3f3043e9997222aa3557b@ec2-99-80-200-225.eu-west-1.compute.amazonaws.com:5432/dn8oaba7ho0of');
+$DATABASE_URL=parse_url('postgres://mkgtvnlynzmdri:91be1a121865e80309002dca3b4b7ceb4e0de8f5a26f1c2e70a52e6cd443c325@ec2-52-0-67-144.compute-1.amazonaws.com:5432/d39481dc4gd3rt');
 
 return [
 
@@ -67,18 +67,32 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            // 'url' => env('DATABASE_URL'),
+            'host' => env('IS_LOCAL') ? env('DB_HOST', '127.0.0.1') : $DATABASE_URL["host"],
+            'port' => env('IS_LOCAL') ? env('DB_PORT', '5432') : $DATABASE_URL["port"],
+            'database' => env('IS_LOCAL') ? env('DB_DATABASE', 'forge') : ltrim($DATABASE_URL["path"], "/"),
+            'username' => env('IS_LOCAL') ? env('DB_USERNAME', 'forge') : $DATABASE_URL["user"],
+            'password' => env('IS_LOCAL'))? env('DB_PASSWORD', '') : $DATABASE_URL["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'url' => env('DATABASE_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
