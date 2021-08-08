@@ -18,7 +18,7 @@ use App\Http\Controllers\BookController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('users/profile',[UserProfileController::class, 'show'])->name('profile');
+//Route::get('users/profile',[UserProfileController::class, 'show'])->name('profile');
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 Route::post('me', [PassportAuthController::class, 'me']);
