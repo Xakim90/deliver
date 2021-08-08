@@ -20,7 +20,7 @@ class BookController extends Controller
 	{
 	   $this->validate($request, [
         'author' => 'required|string',
-        'title' => 'required|unique:products|max:255',
+        'title' => 'required|max:255',
         'file' => 'binary',
         'published' => 'integer',
 		'category_id' => 'integer',
