@@ -26,7 +26,7 @@ class FileUpload extends Controller
             $fileModel->file_path = '/storage/' . $filePath;
             $fileModel->save();
 
-            return response()->json($req, 201);
+            return response()->json($fileModel, 201);
             // return back()
             // ->with('success','File has been uploaded.')
             // ->with('file', $fileName);
