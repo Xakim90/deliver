@@ -11,9 +11,9 @@ class BookController extends Controller
     {
         return Book::all();
     }
-    public function show(Book $product)
+    public function show(Book $book)
 	{
-	    return $product;
+	    return $book;
 	}
 
 	public function store(Request $request)
@@ -21,13 +21,13 @@ class BookController extends Controller
 	   $this->validate($request, [
         'author' => 'required|string',
         'title' => 'required|max:255',
-        'file' => 'binary',
+        'file' => 'file',
         'published' => 'integer',
 		'category_id' => 'integer',
         'description' => 'string',
         'price' => 'integer',
         'availability' => 'boolean',
-		'photo' => 'binary',
+		'photo' => 'image',
 		'selected' => 'boolean',
         'status' => 'string',
         'count' => 'integer'

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\FileUpload;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,6 +29,9 @@ Route::get('books/{id}', [BookController::class, 'show']);
 Route::post('books',[BookController::class, 'store']);
 Route::put('books/{id}',[BookController::class, 'update']);
 Route::delete('books/{id}', [BookController::class, 'delete']);
+Route::get('/upload-file', [FileUpload::class, 'createForm']);
+
+Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 // Route::get('/users/{id}', function ($id) {
 //     return 'User '.$id;
 // });
