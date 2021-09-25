@@ -19,9 +19,12 @@ class FileUpload extends Controller
         $fileModel = new File;
 
         if($req->file()) {
+            // $path = getcwd();
+            // echo "This Is Your Absolute Path: ";
+            // echo $path;
             $fileName = time().'_'.$req->file->getClientOriginalName();
             $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
-
+ 
             $fileModel->name = time().'_'.$req->file->getClientOriginalName();
             $fileModel->file_path = '/storage/' . $filePath;
             $fileModel->save();
