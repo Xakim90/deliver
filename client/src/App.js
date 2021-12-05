@@ -2,7 +2,7 @@
 function App() {
   return (
     <div className="text-red-600 text-center">
-      Hello
+      Hello world
     </div>
   );
 }
