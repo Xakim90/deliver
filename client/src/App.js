@@ -1,8 +1,9 @@
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="text-red-600 text-center">
-      Hello world
+    <div className="flex items-center justify-center h-screen">
+      <Login />
     </div>
   );
 }
