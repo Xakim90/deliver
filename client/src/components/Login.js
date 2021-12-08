@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import '../style.css'
 import background from '../images/NewYork.jpg'
 
 const Login = () => {
@@ -20,7 +19,7 @@ const Login = () => {
                     <div className="border mt-28 rounded shadow-2xl w-96 h-96 text-center">
                         <br />
                         <br />
-                        <div className="text-2xl h1">Login Page</div>
+                        <div className="text-2xl">Login Page</div>
                         <br />
                         <br />
                         <input
@@ -35,6 +34,7 @@ const Login = () => {
                         />
                         <input className="bg-red-500 rounded text-white h-10 px-20 cursor-pointer" type="submit" />
                     </div>
+                    <div className="col-span-4"></div>
                 </div>
             </form>
         </div>
