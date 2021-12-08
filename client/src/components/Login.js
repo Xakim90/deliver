@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import background from '../images/NewYork.jpg'
+import background from '../images/d.jpg'
 
 const Login = () => {
     const { register, handleSubmit } = useForm()
@@ -12,7 +12,7 @@ const Login = () => {
     }
 
     return (
-        <div style={{ backgroundImage: `url(${background})` }}>
+        <div className="bg-cover" style={{ backgroundImage: `url(${background})` }}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-12 h-screen">
                     <div className="col-span-4"></div>
@@ -32,7 +32,7 @@ const Login = () => {
                             {...register("password")}
                             placeholder="Password"
                         />
-                        <input className="bg-red-500 rounded text-white h-10 px-20 cursor-pointer" type="submit" />
+                        <input className="bg-black rounded text-white h-10 px-20 cursor-pointer" type="submit" />
                     </div>
                     <div className="col-span-4"></div>
                 </div>
