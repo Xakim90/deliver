@@ -34,6 +34,7 @@ const Login = () => {
                         />
                         <input className="bg-red-500 rounded text-white h-10 px-20 cursor-pointer" type="submit" />
                     </div>
+                    <div className="col-span-4"></div>
                 </div>
             </form>
         </div>
