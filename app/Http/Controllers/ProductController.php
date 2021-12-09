@@ -19,6 +19,14 @@ class ProductController extends Controller
 	    // return $product;
 	}
 
+	public function get(Request $request)
+	{
+		$name = Product::where('name', $request->name)->get();
+		// $name = $request->query('name');
+		//var_dump($name);
+		return response()->json($name);
+	}
+
 	public function store(Request $request)
 	{
 	   $this->validate($request, [
