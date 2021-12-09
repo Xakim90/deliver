@@ -32,7 +32,9 @@ const Login = () => {
                             type="password"
                             placeholder="Password"
                         />
-                        <input className="bg-black rounded text-white h-10 px-20 cursor-pointer" type="submit" />
+                        <input
+                            className="bg-black rounded text-white h-10 px-20 cursor-pointer"
+                            type="submit" />
                     </div>
                     <div className="col-span-4"></div>
                 </div>
