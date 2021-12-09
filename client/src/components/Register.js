@@ -3,9 +3,7 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import background from '../images/s.jpg'
 
-
-
-let url = 'https://deliver-project.herokuapp.com/api/register'
+let url = 'http://deliver-project.herokuapp.com/api/register'
 
 const Register = () => {
 
@@ -22,30 +20,6 @@ const Register = () => {
                 console.log(error.data)
             })
     }
-    axios({
-        url: 'https://deliver-project.herokuapp.com/api/register', 
-        method: 'get',
-        headers: {
-            'X-Id-Token': 'abc123abc123',
-            'Content-Type': 'application/json'
-        }
-     })
-     .then(response => {
-        console.log(response)
-     }) 
-     .catch(err => {
-        console.log(err);
-     });
-    // useEffect(() => {
-    //     axios.get(url)
-    //         .then(res => {
-    //             setResult()
-    //         }).catch(err => {
-    //             console.log(err)
-    //         })
-    // }, [])
-
-    
 
     return (
         <div>
