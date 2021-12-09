@@ -14,7 +14,7 @@ const Register = () => {
         setResult(JSON.stringify(data))
     }
     axios({
-        url: 'https://deliver-project.herokuapp.com/api/register',
+        url: 'https://deliver-project.herokuapp.com/api/register', 
         method: 'get',
         headers: {
             'X-Id-Token': 'abc123abc123',
