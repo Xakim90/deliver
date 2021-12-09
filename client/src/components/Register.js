@@ -22,10 +22,34 @@ const Register = () => {
                 console.log(error.data)
             })
     }
+    axios({
+        url: 'https://deliver-project.herokuapp.com/api/register', 
+        method: 'get',
+        headers: {
+            'X-Id-Token': 'abc123abc123',
+            'Content-Type': 'application/json'
+        }
+     })
+     .then(response => {
+        console.log(response)
+     }) 
+     .catch(err => {
+        console.log(err);
+     });
+    // useEffect(() => {
+    //     axios.get(url)
+    //         .then(res => {
+    //             setResult()
+    //         }).catch(err => {
+    //             console.log(err)
+    //         })
+    // }, [])
+
+    
 
     return (
         <div>
-            <div className="bg-cover" style={{ backgroundImage: `url(${background})` }}>
+            <div className="bg-cover" style={{ backgroundImage: `url(${background})`}}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-12 h-screen">
                         <br />
