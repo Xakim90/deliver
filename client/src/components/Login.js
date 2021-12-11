@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
+import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import background from '../images/d.jpg'
 
+
+let url = 'http://deliver-project.herokuapp.com/api/login'
+
 const Login = () => {
     const { register, handleSubmit } = useForm()
-    const [result, setResult] = useState("")
-    console.log(result)
 
     const onSubmit = (data) => {
-        setResult(JSON.stringify(data))
+        axios.post(url, data)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
     }
 
     return (
