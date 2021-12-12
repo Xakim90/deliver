@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import background from '../images/s.jpg'
 import axios from 'axios';
 
-let url = 'http://deliver-project.herokuapp.com/api/register';
+let url = 'http://deliver-project.herokuapp.com/api/register'
 
 const Register = () => {
 
