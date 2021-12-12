@@ -6,6 +6,8 @@ use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FileUpload;
+use App\Models\Product;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,6 +41,14 @@ Route::delete('product/{id}', [ProductController::class, 'delete']);
 Route::get('/upload-file', [FileUpload::class, 'createForm']);
 
 Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
+Route::get('user/{name?}', function($name = null)
+// {
+//     $name = Product::where('name', $request->name)->get();
+// 		// $name = $request->query('name');
+// 		//var_dump($name);
+// 		//return response()->json($name);
+//     return $name;
+// });
 // Route::get('/users/{id}', function ($id) {
 //     return 'User '.$id;
 // });
