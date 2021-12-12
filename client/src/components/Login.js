@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import background from '../images/d.jpg'
 
+let url = 'http://deliver-project.herokuapp.com/api/login';
+
 const Login = () => {
     const { register, handleSubmit } = useForm()
-    const [result, setResult] = useState("")
-    console.log(result)
 
     const onSubmit = (data) => {
-        setResult(JSON.stringify(data))
+        axios.post(url, data)
+            .then(res => {
+                console.log(res.data)
+            }).catch(err => {
+                console.log(err)
+            })
     }
 
     return (
@@ -23,7 +29,7 @@ const Login = () => {
                         <input
                             className="rounded border border-red-300 outline-none h-10 w-72 px-4"
                             {...register("email")}
-                            type="text"
+                            type="email"
                             placeholder="Email"
                         />
                         <input
@@ -36,7 +42,6 @@ const Login = () => {
                             className="bg-black rounded text-white h-10 px-20 cursor-pointer"
                             type="submit" />
                     </div>
-                    <div className="col-span-4"></div>
                 </div>
             </form>
         </div>
