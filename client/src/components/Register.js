@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
-import background from '../images/s.jpg'
-import axios from 'axios';
+import background from '../images/s.jpg';
 
 let url = 'http://deliver-project.herokuapp.com/api/register'
 
