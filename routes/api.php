@@ -42,13 +42,13 @@ Route::get('/upload-file', [FileUpload::class, 'createForm']);
 
 Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 Route::get('user/{name?}', function($name = null)
-// {
-//     $name = Product::where('name', $request->name)->get();
-// 		// $name = $request->query('name');
-// 		//var_dump($name);
-// 		//return response()->json($name);
-//     return $name;
-// });
+{
+    $name = Product::where('name', $request->name)->get();
+		// $name = $request->query('name');
+		//var_dump($name);
+		//return response()->json($name);
+    return $name;
+});
 // Route::get('/users/{id}', function ($id) {
 //     return 'User '.$id;
 // });
