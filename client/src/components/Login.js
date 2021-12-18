@@ -27,7 +27,7 @@ const Login = () => {
                         <input
                             className="rounded border border-red-300 outline-none h-10 w-80 p-5"
                             {...register("email")}
-                            type="text"
+                            type="email"
                             placeholder="Email"
                         />
                         <input
@@ -38,7 +38,6 @@ const Login = () => {
                         />
                         <input className="bg-black hover:bg-blue-600 rounded text-white h-10 px-20 cursor-pointer" type="submit" />
                     </div>
-                    <div className="col-span-4"></div>
                 </div>
             </form>
         </div>
