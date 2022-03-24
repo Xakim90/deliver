@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\File;
+use Illuminate\Support\Facades\Storage;
 
 class FileUpload extends Controller
 {
@@ -35,5 +36,17 @@ class FileUpload extends Controller
             // ->with('file', $fileName);
         }
    }
+   public function download(Request $request)
+    {
+        $file = File::where('id', $request->id)->firstOrFail();
+        $pathToFile = storage_path('app/public/uploads/' . $file->name);
+        return response()->download($pathToFile);
+    }
+   public function get(Request $request)
+    {
+        $file = File::where('id', $request->id)->firstOrFail();
+        $pathToFile = storage_path('app/public/uploads/' . $file->name);
+        return response()->file($pathToFile);
+    }
 
 }

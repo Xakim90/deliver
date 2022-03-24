@@ -13,21 +13,14 @@ class ProductController extends Controller
     }
     public function show(Request $request)
 	{
-        $product = Product::where('id', $request->id)
-		->where('price', '<', 2000)
-		//->where('name',  $request->id)
-		->get();
-
+		$product = Product::where('id', $request->id)->get();
         return response()->json($product);
-	    // return $product;
 	}
-    // public function show(Request $request)
-	// {
-    //     $product = Product::where('id', $request->id)->get();
-
-    //     return response()->json($product);
-	//     // return $product;
-	// }
+    public function showCurrent(Request $request)
+	{
+		$product = Product::where($request->key, $request->val)->get();
+        return response()->json($product);
+	}
 
 	public function get(Request $request)
 	{

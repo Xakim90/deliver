@@ -33,12 +33,15 @@ Route::post('books',[BookController::class, 'store']);
 Route::put('books/{id}',[BookController::class, 'update']);
 Route::delete('books/{id}', [BookController::class, 'delete']);
 Route::get('product', [ProductController::class, 'index']);
-Route::get('product/{id}', [ProductController::class, 'show']);
+// Route::get('product/{id}', [ProductController::class, 'show']);
+Route::get('product/{key}={val}', [ProductController::class, 'showCurrent']);
 //Route::get('products/{name}', [ProductController::class, 'get']);
 Route::post('product',[ProductController::class, 'store']);
 Route::put('product/{id}',[ProductController::class, 'update']);
 Route::delete('product/{id}', [ProductController::class, 'delete']);
-Route::get('/upload-file', [FileUpload::class, 'createForm']);
+Route::get('/file/upload', [FileUpload::class, 'createForm']);
+Route::get('/file/download/{id}', [FileUpload::class, 'download']);
+Route::get('/file/get/{id}', [FileUpload::class, 'get']);
 
 Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 Route::get('user/{name?}', function($name = null)
@@ -49,6 +52,10 @@ Route::get('user/{name?}', function($name = null)
 		//return response()->json($name);
     return $name;
 });
+Route::get('/greeting', function () {
+  return 'Hello World';
+});
+Route::redirect('/here', '/there');
 // Route::get('/users/{id}', function ($id) {
 //     return 'User '.$id;
 // });
